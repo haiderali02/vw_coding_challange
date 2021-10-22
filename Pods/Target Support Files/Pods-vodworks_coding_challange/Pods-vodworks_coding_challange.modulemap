@@ -1,0 +1,6 @@
+framework module Pods_vodworks_coding_challange {
+  umbrella header "Pods-vodworks_coding_challange-umbrella.h"
+
+  export *
+  module * { export * }
+}
