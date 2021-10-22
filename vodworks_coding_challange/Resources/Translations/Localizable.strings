@@ -10,3 +10,9 @@
 "common.ok" = "Ok";
 "common.cancel" = "Cancel";
 "common.error" = "Error";
+
+"home.title" = "Vod Works: Coding Challange - Haider Ali";
+"home.left" = "Left";
+"home.right" = "Right";
+"home.top" = "Top";
+"home.bottom" = "Bottom";

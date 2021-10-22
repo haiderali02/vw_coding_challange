@@ -18,6 +18,8 @@
 		2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEE6D51F3886D700531205 /* RootRouter.swift */; };
 		553FC23C214047CB001D9362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FC23B214047CB001D9362 /* R.generated.swift */; };
 		6D2498BFE9C68CBA6F1CD79E /* Pods_vodworks_coding_challange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A94A4A1CC341C25640A85E9 /* Pods_vodworks_coding_challange.framework */; };
+		9489C1CD2722D3C40030A603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489C1CC2722D3C40030A603 /* HomeView.swift */; };
+		9489C1CF2722D4E30030A603 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489C1CE2722D4E30030A603 /* HomeViewController.swift */; };
 		C90395241FC622D2006F1DC0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395231FC622D2006F1DC0 /* main.swift */; };
 		C90395261FC62399006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
 		C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
@@ -55,6 +57,8 @@
 		553FC23B214047CB001D9362 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		55F50BE321404BDD00FAC039 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		7F555CF52CCDA74CA9F3AABA /* Pods-vodworks_coding_challangeTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vodworks_coding_challangeTests.staging.xcconfig"; path = "Target Support Files/Pods-vodworks_coding_challangeTests/Pods-vodworks_coding_challangeTests.staging.xcconfig"; sourceTree = "<group>"; };
+		9489C1CC2722D3C40030A603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9489C1CE2722D4E30030A603 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C90395231FC622D2006F1DC0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAppDelegate.swift; sourceTree = "<group>"; };
 		CD5C47DF48BE1CF258C36066 /* Pods-vodworks_coding_challange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vodworks_coding_challange.release.xcconfig"; path = "Target Support Files/Pods-vodworks_coding_challange/Pods-vodworks_coding_challange.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				2A1DD4E21F38A09700712195 /* Launch */,
+				9489C1C92722D33B0030A603 /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -246,6 +251,31 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		9489C1C92722D33B0030A603 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9489C1CA2722D3650030A603 /* View */,
+				9489C1CB2722D3740030A603 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9489C1CA2722D3650030A603 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9489C1CC2722D3C40030A603 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9489C1CB2722D3740030A603 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9489C1CE2722D4E30030A603 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		AE4BD51460457C83DA157BBC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +286,6 @@
 				7F555CF52CCDA74CA9F3AABA /* Pods-vodworks_coding_challangeTests.staging.xcconfig */,
 				2DCE8E241811F0973DF11F4D /* Pods-vodworks_coding_challangeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -372,10 +401,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-vodworks_coding_challange/Pods-vodworks_coding_challange-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -436,7 +467,7 @@
 			);
 			name = R.swift;
 			outputPaths = (
-				"$SRCROOT/vodworks_coding_challange/Resources/Generated/R.generated.swift",
+				$SRCROOT/vodworks_coding_challange/Resources/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,10 +494,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9489C1CD2722D3C40030A603 /* HomeView.swift in Sources */,
 				2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */,
 				2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */,
 				C90395241FC622D2006F1DC0 /* main.swift in Sources */,
 				2A1E77371F384BFC006C84D4 /* AppDelegate.swift in Sources */,
+				9489C1CF2722D4E30030A603 /* HomeViewController.swift in Sources */,
 				553FC23C214047CB001D9362 /* R.generated.swift in Sources */,
 				C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */,
 				2A1DD4E11F389E2100712195 /* NotificationsHandler.swift in Sources */,
@@ -623,7 +656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = vodworks_coding_challange/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -warn-long-expression-type-checking=500";
 				PRODUCT_BUNDLE_IDENTIFIER = your.bundle.id;
@@ -639,7 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = vodworks_coding_challange/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = your.bundle.id;
@@ -752,7 +785,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = vodworks_coding_challange/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = your.bundle.id;

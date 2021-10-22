@@ -11,7 +11,8 @@ target 'vodworks_coding_challange' do
 
   pod 'R.swift', '5.0.0'
   pod 'SwiftLint', '0.31.0'
-
+  pod 'SnapKit', '~> 5.0.0'
+  
   target 'vodworks_coding_challangeTests' do
     inherit! :search_paths
   end
