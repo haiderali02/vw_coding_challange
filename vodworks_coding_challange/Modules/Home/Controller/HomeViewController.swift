@@ -8,10 +8,31 @@
 
 import UIKit
 
+enum Directions {
+    case top
+    case bottom
+    case left
+    case right
+}
+
 class HomeViewController: UIViewController {
 
+    // MARK: - PROPERTIES -
     let homeView: HomeView = HomeView(frame: UIScreen.main.bounds)
-
+    var xPosition: CGFloat = 0 {
+        didSet {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+                self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
+                }, completion: nil)
+        }
+    }
+    var yPosition: CGFloat = 0 {
+        didSet {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+                self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
+                }, completion: nil)
+        }
+    }
     // MARK: - UIViewController LIFECYCLE -
 
     override func viewDidLoad() {
@@ -32,22 +53,47 @@ class HomeViewController: UIViewController {
         self.homeView.moveBottomButton.addTarget(self, action: #selector(didTapMoveBottom(_:)), for: .touchUpInside)
     }
 
+    private func moveBoxInThe(direction: Directions) {
+        switch direction {
+        case .left:
+            print("Move Left")
+            self.xPosition -= 20
+        case .right:
+            print("Move Right")
+            self.xPosition += 20
+        case .top:
+            print("Move Top")
+            self.yPosition -= 20
+        case .bottom:
+            self.yPosition += 20
+            print("Move Bottom")
+        }
+    }
+
     // MARK: - ACTIONS -
 
     @objc
     func didTapMoveLeft(_ sender: UIButton) {
-        sender.showAnimation {}
+        sender.showAnimation {
+            self.moveBoxInThe(direction: .left)
+        }
     }
     @objc
     func didTapMoveRight(_ sender: UIButton) {
-        sender.showAnimation {}
+        sender.showAnimation {
+            self.moveBoxInThe(direction: .right)
+        }
     }
     @objc
     func didTapMoveTop(_ sender: UIButton) {
-        sender.showAnimation {}
+        sender.showAnimation {
+            self.moveBoxInThe(direction: .top)
+        }
     }
     @objc
     func didTapMoveBottom(_ sender: UIButton) {
-        sender.showAnimation {}
+        sender.showAnimation {
+            self.moveBoxInThe(direction: .bottom)
+        }
     }
 }

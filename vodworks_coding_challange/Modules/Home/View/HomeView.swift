@@ -110,6 +110,7 @@ class HomeView: UIView {
         containerView.backgroundColor = UIColor.systemRed
         childContainerView.backgroundColor = .white
         buttonContainerView.backgroundColor = UIColor.white
+        robotView.backgroundColor = UIColor.systemRed
     }
 
     func setUpConstraints() {
