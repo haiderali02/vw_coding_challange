@@ -21,16 +21,12 @@ class HomeViewController: UIViewController {
     let homeView: HomeView = HomeView(frame: UIScreen.main.bounds)
     var xPosition: CGFloat = 0 {
         didSet {
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-                self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
-                }, completion: nil)
+            adjustRobotViewPosition()
         }
     }
     var yPosition: CGFloat = 0 {
         didSet {
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-                self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
-                }, completion: nil)
+            adjustRobotViewPosition()
         }
     }
     // MARK: - UIViewController LIFECYCLE -
@@ -56,18 +52,20 @@ class HomeViewController: UIViewController {
     private func moveBoxInThe(direction: Directions) {
         switch direction {
         case .left:
-            print("Move Left")
-            self.xPosition -= 20
+            self.xPosition -= 30
         case .right:
-            print("Move Right")
-            self.xPosition += 20
+            self.xPosition += 30
         case .top:
-            print("Move Top")
-            self.yPosition -= 20
+            self.yPosition -= 30
         case .bottom:
             self.yPosition += 20
-            print("Move Bottom")
         }
+    }
+
+    func adjustRobotViewPosition() {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
+            self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
+            }, completion: nil)
     }
 
     // MARK: - ACTIONS -

@@ -38,6 +38,14 @@ class HomeView: UIView {
         return view
     }()
 
+    var robotImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = R.image.img_robot()
+        imgView.clipsToBounds = true
+        imgView.layer.cornerRadius = 8
+        return imgView
+    }()
+
     var buttonContainerView: UIStackView = {
         let stView = UIStackView()
         stView.axis = .horizontal
@@ -103,6 +111,7 @@ class HomeView: UIView {
         buttonContainerView.addArrangedSubview(moveRightButton)
         buttonContainerView.addArrangedSubview(moveTopButton)
         buttonContainerView.addArrangedSubview(moveBottomButton)
+        robotView.addSubview(robotImageView)
     }
 
     func configureViews() {
@@ -110,7 +119,7 @@ class HomeView: UIView {
         containerView.backgroundColor = UIColor.systemRed
         childContainerView.backgroundColor = .white
         buttonContainerView.backgroundColor = UIColor.white
-        robotView.backgroundColor = UIColor.systemRed
+        robotView.backgroundColor = .white
     }
 
     func setUpConstraints() {
@@ -130,6 +139,9 @@ class HomeView: UIView {
             make.height.width.equalTo(60)
             make.centerX.equalTo(childContainerView.snp.centerX)
             make.centerY.equalTo(childContainerView.snp.centerY)
+        }
+        robotImageView.snp.makeConstraints { make in
+            make.edges.equalTo(robotView)
         }
     }
 }
