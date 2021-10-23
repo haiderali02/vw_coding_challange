@@ -117,14 +117,14 @@ class HomeView: UIView {
     func configureViews() {
         self.backgroundColor = .white
         containerView.backgroundColor = UIColor.systemRed
-        childContainerView.backgroundColor = .white
+        childContainerView.backgroundColor = .systemGreen
         buttonContainerView.backgroundColor = UIColor.white
         robotView.backgroundColor = .white
     }
 
     func setUpConstraints() {
         containerView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(safeAreaLayoutGuide).offset(8)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(buttonContainerView.snp.top).inset(-8)
         }

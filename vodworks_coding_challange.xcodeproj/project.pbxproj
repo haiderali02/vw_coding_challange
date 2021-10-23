@@ -21,6 +21,7 @@
 		9489C1CD2722D3C40030A603 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489C1CC2722D3C40030A603 /* HomeView.swift */; };
 		9489C1CF2722D4E30030A603 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489C1CE2722D4E30030A603 /* HomeViewController.swift */; };
 		9489C1D12722E0AE0030A603 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489C1D02722E0AE0030A603 /* UIView+Extensions.swift */; };
+		94E2610B2723F28800313912 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2610A2723F28800313912 /* HomePresenter.swift */; };
 		C90395241FC622D2006F1DC0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395231FC622D2006F1DC0 /* main.swift */; };
 		C90395261FC62399006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
 		C90395271FC62425006F1DC0 /* TestsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		9489C1CC2722D3C40030A603 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9489C1CE2722D4E30030A603 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9489C1D02722E0AE0030A603 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		94E2610A2723F28800313912 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		C90395231FC622D2006F1DC0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C90395251FC62399006F1DC0 /* TestsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsAppDelegate.swift; sourceTree = "<group>"; };
 		CD5C47DF48BE1CF258C36066 /* Pods-vodworks_coding_challange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vodworks_coding_challange.release.xcconfig"; path = "Target Support Files/Pods-vodworks_coding_challange/Pods-vodworks_coding_challange.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		9489C1C92722D33B0030A603 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				94E261092723F27000313912 /* HomePresenter */,
 				9489C1CA2722D3650030A603 /* View */,
 				9489C1CB2722D3740030A603 /* Controller */,
 			);
@@ -277,6 +280,14 @@
 				9489C1CE2722D4E30030A603 /* HomeViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		94E261092723F27000313912 /* HomePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				94E2610A2723F28800313912 /* HomePresenter.swift */,
+			);
+			path = HomePresenter;
 			sourceTree = "<group>";
 		};
 		AE4BD51460457C83DA157BBC /* Pods */ = {
@@ -500,6 +511,7 @@
 				9489C1CD2722D3C40030A603 /* HomeView.swift in Sources */,
 				2A9222821F38797600A648E6 /* ConfigurationManager.swift in Sources */,
 				2ABEE6D61F3886D700531205 /* RootRouter.swift in Sources */,
+				94E2610B2723F28800313912 /* HomePresenter.swift in Sources */,
 				C90395241FC622D2006F1DC0 /* main.swift in Sources */,
 				2A1E77371F384BFC006C84D4 /* AppDelegate.swift in Sources */,
 				9489C1CF2722D4E30030A603 /* HomeViewController.swift in Sources */,

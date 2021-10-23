@@ -8,13 +8,6 @@
 
 import UIKit
 
-enum Directions {
-    case top
-    case bottom
-    case left
-    case right
-}
-
 class HomeViewController: UIViewController {
 
     // MARK: - PROPERTIES -
@@ -29,6 +22,9 @@ class HomeViewController: UIViewController {
             adjustRobotViewPosition()
         }
     }
+
+    let homePresenter: HomePresenter = HomePresenter()
+
     // MARK: - UIViewController LIFECYCLE -
 
     override func viewDidLoad() {
@@ -47,19 +43,7 @@ class HomeViewController: UIViewController {
         self.homeView.moveRightButton.addTarget(self, action: #selector(didTapMoveRight(_:)), for: .touchUpInside)
         self.homeView.moveTopButton.addTarget(self, action: #selector(didTapMoveTop(_:)), for: .touchUpInside)
         self.homeView.moveBottomButton.addTarget(self, action: #selector(didTapMoveBottom(_:)), for: .touchUpInside)
-    }
-
-    private func moveBoxInThe(direction: Directions) {
-        switch direction {
-        case .left:
-            self.xPosition -= 30
-        case .right:
-            self.xPosition += 30
-        case .top:
-            self.yPosition -= 30
-        case .bottom:
-            self.yPosition += 20
-        }
+        homePresenter.setViewDelegate(delegate: self)
     }
 
     func adjustRobotViewPosition() {
@@ -72,26 +56,35 @@ class HomeViewController: UIViewController {
 
     @objc
     func didTapMoveLeft(_ sender: UIButton) {
-        sender.showAnimation {
-            self.moveBoxInThe(direction: .left)
+        sender.showAnimation { [self] in
+            homePresenter.moveRobotIn(direction: .left, prevXPosition: self.xPosition, prevYPosition: self.yPosition)
         }
     }
     @objc
     func didTapMoveRight(_ sender: UIButton) {
-        sender.showAnimation {
-            self.moveBoxInThe(direction: .right)
+        sender.showAnimation { [self] in
+            homePresenter.moveRobotIn(direction: .right, prevXPosition: self.xPosition, prevYPosition: self.yPosition)
         }
     }
     @objc
     func didTapMoveTop(_ sender: UIButton) {
-        sender.showAnimation {
-            self.moveBoxInThe(direction: .top)
+        sender.showAnimation { [self] in
+            homePresenter.moveRobotIn(direction: .top, prevXPosition: self.xPosition, prevYPosition: self.yPosition)
         }
     }
     @objc
     func didTapMoveBottom(_ sender: UIButton) {
-        sender.showAnimation {
-            self.moveBoxInThe(direction: .bottom)
+        sender.showAnimation { [self] in
+            homePresenter.moveRobotIn(direction: .bottom, prevXPosition: self.xPosition, prevYPosition: self.yPosition)
         }
     }
+}
+
+extension HomeViewController: HomePresenterDelegate {
+
+    func didUpdateRobotPosition(xPosition: CGFloat, yPosition: CGFloat) {
+        self.xPosition = xPosition
+        self.yPosition = yPosition
+    }
+
 }
