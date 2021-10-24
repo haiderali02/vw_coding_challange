@@ -136,7 +136,7 @@ class HomeView: UIView {
             make.edges.equalTo(containerView).inset(16)
         }
         robotView.snp.makeConstraints { make in
-            make.height.width.equalTo(60)
+            make.height.width.equalTo(75)
             make.centerX.equalTo(childContainerView.snp.centerX)
             make.centerY.equalTo(childContainerView.snp.centerY)
         }

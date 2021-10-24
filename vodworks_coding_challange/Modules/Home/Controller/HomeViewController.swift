@@ -14,12 +14,12 @@ class HomeViewController: UIViewController {
     let homeView: HomeView = HomeView(frame: UIScreen.main.bounds)
     var xPosition: CGFloat = 0 {
         didSet {
-            adjustRobotViewPosition()
+            //adjustRobotViewPosition()
         }
     }
     var yPosition: CGFloat = 0 {
         didSet {
-            adjustRobotViewPosition()
+            //adjustRobotViewPosition()
         }
     }
 
@@ -46,10 +46,12 @@ class HomeViewController: UIViewController {
         homePresenter.setViewDelegate(delegate: self)
     }
 
-    func adjustRobotViewPosition() {
+    func adjustRobotViewPosition(newXPosition: CGFloat, newYPosition: CGFloat) {
+        self.xPosition = newXPosition
+        self.yPosition = newYPosition
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
             self.homeView.robotView.transform = CGAffineTransform(translationX: self.xPosition, y: self.yPosition)
-            }, completion: nil)
+        }, completion: nil)
     }
 
     // MARK: - ACTIONS -
@@ -81,10 +83,28 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomePresenterDelegate {
+    func didUpdateRobotPosition(xPosition: CGFloat, yPosition: CGFloat, direction: Directions) {
 
-    func didUpdateRobotPosition(xPosition: CGFloat, yPosition: CGFloat) {
-        self.xPosition = xPosition
-        self.yPosition = yPosition
+        let tableViewFrame = self.homeView.childContainerView.frame
+        let robotViewFrame = self.homeView.robotView.frame
+
+        if tableViewFrame.contains(robotViewFrame) {
+            self.adjustRobotViewPosition(newXPosition: xPosition, newYPosition: yPosition)
+        } else {
+            switch direction {
+            case .left:
+                let updatedPosition = self.xPosition + Constants.steps
+                self.adjustRobotViewPosition(newXPosition: updatedPosition, newYPosition: yPosition)
+            case .right:
+                let updatedPosition = self.xPosition - Constants.steps
+                self.adjustRobotViewPosition(newXPosition: updatedPosition, newYPosition: yPosition)
+            case .top:
+                let updatedPosition = self.yPosition + Constants.steps
+                self.adjustRobotViewPosition(newXPosition: xPosition, newYPosition: updatedPosition)
+            case .bottom:
+                let updatedPosition = self.yPosition - Constants.steps
+                self.adjustRobotViewPosition(newXPosition: xPosition, newYPosition: updatedPosition)
+            }
+        }
     }
-
 }

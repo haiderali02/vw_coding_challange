@@ -17,7 +17,7 @@ enum Directions {
 }
 
 protocol HomePresenterDelegate: AnyObject {
-    func didUpdateRobotPosition(xPosition: CGFloat, yPosition: CGFloat)
+    func didUpdateRobotPosition(xPosition: CGFloat, yPosition: CGFloat, direction: Directions)
 }
 
 typealias HomePresenterAliays = HomePresenterDelegate & UIViewController
@@ -31,18 +31,22 @@ class HomePresenter {
         var newY: CGFloat = prevYPosition
         switch direction {
         case .left:
-            newX -= 30
+            newX -= Constants.steps
         case .right:
-            newX += 30
+            newX += Constants.steps
         case .top:
-            newY -= 30
+            newY -= Constants.steps
         case .bottom:
-            newY += 20
+            newY += Constants.steps
         }
-        self.delegate?.didUpdateRobotPosition(xPosition: newX, yPosition: newY)
+        self.delegate?.didUpdateRobotPosition(xPosition: newX, yPosition: newY, direction: direction)
     }
 
     public func setViewDelegate(delegate: HomePresenterAliays) {
         self.delegate = delegate
     }
+}
+
+struct Constants {
+    static let steps: CGFloat = 30
 }
