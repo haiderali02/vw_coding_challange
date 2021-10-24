@@ -2,7 +2,7 @@
 //  HomePresenter.swift
 //  vodworks_coding_challange
 //
-//  Created by Haider Ali on 23/10/2021.
+//  Created by Haider Ali on 24/10/2021.
 //  Copyright © 2021 vodworks. All rights reserved.
 //
 
@@ -22,27 +22,34 @@ protocol HomePresenterDelegate: AnyObject {
 
 typealias HomePresenterAliays = HomePresenterDelegate & UIViewController
 
-class HomePresenter {
+public class HomePresenter {
 
     weak var delegate: HomePresenterAliays?
 
-    public func moveRobotIn(direction: Directions, prevXPosition: CGFloat, prevYPosition: CGFloat) {
+    var horizontolDirection: CGFloat = 0.0
+    var verticleDirection: CGFloat = 0.0
+
+    func moveRobotIn(direction: Directions, prevXPosition: CGFloat, prevYPosition: CGFloat) {
         var newX: CGFloat = prevXPosition
         var newY: CGFloat = prevYPosition
         switch direction {
         case .left:
             newX -= Constants.steps
+            self.horizontolDirection = newX
         case .right:
             newX += Constants.steps
+            self.horizontolDirection = newX
         case .top:
             newY -= Constants.steps
+            self.verticleDirection = newY
         case .bottom:
             newY += Constants.steps
+            self.verticleDirection = newY
         }
         self.delegate?.didUpdateRobotPosition(xPosition: newX, yPosition: newY, direction: direction)
     }
 
-    public func setViewDelegate(delegate: HomePresenterAliays) {
+    func setViewDelegate(delegate: HomePresenterAliays) {
         self.delegate = delegate
     }
 }
