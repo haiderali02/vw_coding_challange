@@ -11,8 +11,9 @@
 "common.cancel" = "Cancel";
 "common.error" = "Error";
 
-"home.title" = "Vod Works: Coding Challange - Haider Ali";
-"home.left" = "Left";
-"home.right" = "Right";
-"home.top" = "Top";
-"home.bottom" = "Bottom";
+"home.title" = "Coding Challange - Haider Ali";
+"home.left" = "Move Left";
+"home.right" = "Move Right";
+"home.top" = "Move Up";
+"home.bottom" = "Move Down";
+"home.showLocation" = "Show Position";

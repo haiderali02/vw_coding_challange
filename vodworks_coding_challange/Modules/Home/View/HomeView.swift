@@ -60,6 +60,9 @@ class HomeView: UIView {
         let button: UIButton = UIButton()
         button.backgroundColor = UIColor.systemRed
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
         button.setTitle(R.string.localizable.homeLeft(), for: .normal)
         button.layer.cornerRadius = 8
         return button
@@ -69,6 +72,9 @@ class HomeView: UIView {
         let button: UIButton = UIButton()
         button.backgroundColor = UIColor.systemRed
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
         button.setTitle(R.string.localizable.homeRight(), for: .normal)
         button.layer.cornerRadius = 8
         return button
@@ -79,6 +85,9 @@ class HomeView: UIView {
         button.setTitle(R.string.localizable.homeTop(), for: .normal)
         button.backgroundColor = UIColor.systemRed
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.layer.cornerRadius = 8
         return button
     }()
@@ -86,11 +95,25 @@ class HomeView: UIView {
         let button: UIButton = UIButton()
         button.backgroundColor = UIColor.systemRed
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitle(R.string.localizable.homeBottom(), for: .normal)
         button.layer.cornerRadius = 8
         return button
     }()
 
+    var showLocationButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.backgroundColor = UIColor.systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setTitle(R.string.localizable.homeShowLocation(), for: .normal)
+        button.layer.cornerRadius = 8
+        return button
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -109,6 +132,7 @@ class HomeView: UIView {
         childContainerView.addSubview(robotView)
         buttonContainerView.addArrangedSubview(moveLeftButton)
         buttonContainerView.addArrangedSubview(moveRightButton)
+        buttonContainerView.addArrangedSubview(showLocationButton)
         buttonContainerView.addArrangedSubview(moveTopButton)
         buttonContainerView.addArrangedSubview(moveBottomButton)
         robotView.addSubview(robotImageView)

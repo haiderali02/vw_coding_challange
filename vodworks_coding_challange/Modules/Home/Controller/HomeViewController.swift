@@ -43,6 +43,7 @@ class HomeViewController: UIViewController {
         self.homeView.moveRightButton.addTarget(self, action: #selector(didTapMoveRight(_:)), for: .touchUpInside)
         self.homeView.moveTopButton.addTarget(self, action: #selector(didTapMoveTop(_:)), for: .touchUpInside)
         self.homeView.moveBottomButton.addTarget(self, action: #selector(didTapMoveBottom(_:)), for: .touchUpInside)
+        self.homeView.showLocationButton.addTarget(self, action: #selector(didTapShowLocation(_:)), for: .touchUpInside)
         homePresenter.setViewDelegate(delegate: self)
     }
 
@@ -66,6 +67,16 @@ class HomeViewController: UIViewController {
     func didTapMoveRight(_ sender: UIButton) {
         sender.showAnimation { [self] in
             homePresenter.moveRobotIn(direction: .right, prevXPosition: self.xPosition, prevYPosition: self.yPosition)
+        }
+    }
+    @objc
+    func didTapShowLocation(_ sender: UIButton) {
+        sender.showAnimation { [self] in
+            let robotViewBounds = self.homeView.robotView.bounds
+            let robotViewFrames = self.homeView.robotView.frame
+            let alertController = UIAlertController(title: "Robot View", message: "Bounds: \(robotViewBounds)\nFrames: \(robotViewFrames)", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     @objc
